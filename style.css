@@ -731,7 +731,6 @@ h2{font-size:2.1rem;margin-bottom:16px;}
   transition:background .2s, transform .2s;
 }
 .msg-toggle:hover{background:var(--ink);transform:translateY(-2px);}
-.msg-icon{font-size:1.05rem;}
 
 .msg-panel{
   width:300px;
