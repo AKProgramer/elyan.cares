@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   msgForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     const name = document.getElementById('msgName').value.trim();
+    const email = document.getElementById('msgEmail').value.trim();
     const message = document.getElementById('msgText').value.trim();
 
     msgSend.disabled = true;
@@ -86,13 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
     msgStatus.className = 'msg-status';
 
     try {
-      const res = await fetch('/api/message', {
+      const res = await fetch('https://formspree.io/f/mgvwqgzk', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, message }),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed to send');
+      if (!res.ok) throw new Error((data.errors && data.errors[0] && data.errors[0].message) || 'Failed to send');
 
       msgStatus.textContent = 'Thanks! Your message has been sent.';
       msgStatus.classList.add('msg-status-ok');
