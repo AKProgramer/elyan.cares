@@ -1,9 +1,0 @@
-{
-  "name": "glow-and-grace-site",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Glow & Grace spa site with a Vercel serverless contact form that emails via Nodemailer",
-  "dependencies": {
-    "nodemailer": "^6.9.14"
-  }
-}
